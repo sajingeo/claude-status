@@ -16,8 +16,8 @@ A short two-note chime plays on the **working → idle** transition (task done).
 
 ## Hardware
 
-- **Waveshare ESP32-S3-Touch-AMOLED-1.8** (board revision **V2**: CO5300 panel,
-  CST816S touch). The V1 panel (SH8601 / FT3168) also works — the BSP detects it.
+- **Waveshare ESP32-S3-Touch-AMOLED-1.8 (https://docs.waveshare.com/ESP32-S3-Touch-AMOLED-1.8) ** (board revision **V2**: CO5300 panel,
+  CST816S touch). The V1 panel (SH8601 / FT3168) also works. (https://a.co/d/0aY2bQre)
   - ESP32-S3R8 · dual-core LX7 @240 MHz · 16 MB flash · 8 MB octal PSRAM
   - 1.8" AMOLED, 368 × 448
   - ES8311 audio codec + NS4150B speaker amp (used for the chime)
