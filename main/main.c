@@ -236,11 +236,13 @@ static void set_state(cc_state_t st)
         return;
     }
     cc_state_t prev = s_state;
+    /* Wait for the lock (0 = forever). A short timeout could drop the update
+     * while a slow LVGL frame holds the lock, leaving the screen stuck on the
+     * previous state while s_state (and the chime) still advance. */
+    bsp_display_lock(0);
     s_state = st;
-    if (bsp_display_lock(100)) {
-        apply_state(st);
-        bsp_display_unlock();
-    }
+    apply_state(st);
+    bsp_display_unlock();
     ESP_LOGI(TAG, "state -> %s", STATES[st].word);
     if (prev == ST_WORKING && st == ST_IDLE) {
         play_beep();   /* done chime */
